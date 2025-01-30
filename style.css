@@ -1,0 +1,387 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-panel {
+    width: 68%;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #1a1a1a;
+    box-shadow: 2px 0 5px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .right-panel {
+    margin-left: 70%; /* Increased margin to ensure enough space for the fixed left panel and padding */
+    margin-right: 0%; /* Increased margin to ensure enough space for the fixed left panel and padding */
+    width: 30%; /* Adjusted width to prevent overflow */
+    padding: 10px;
+    overflow-y: scroll;
+    height: 100vh;
+  white-space: pre-wrap; /* Preserve line breaks and spaces */
+  }
+
+  #current-year {
+    font-size: 2em;
+    color: yellow;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
+    gap: 10px;
+    width: 100%; /* Fill the width of the left panel */
+    justify-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  .figure-container {
+    position: relative; /* Allows positioning of the red X within the figure */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #image-container img {
+    width: 100px; /* Standard width */
+    height: 100px; /* Standard height */
+    object-fit: cover; /* Ensures images fill the frame without distortion */
+    object-position: top; /* Aligns the image to the top */
+    border-radius: 50%; /* Makes the image round */
+    border: 3px solid gold; /* Gold border for the circular frame */
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .red-x {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    color: red;
+    font-size: 54px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    pointer-events: none; /* So that the red X doesn't interfere with hover or click events */
+    text-shadow: 
+    -1px -1px 0 black,  /* Outline to the top-left */
+    1px -1px 0 black,   /* Outline to the top-right */
+    -1px 1px 0 black,   /* Outline to the bottom-left */
+    1px 1px 0 black;    /* Outline to the bottom-right */ 
+}
+  
+  .green-exclamation {
+    position: absolute;
+    top: 5px;
+    right: 5px; /* Positioned in the top-left corner */
+    width: 30px;
+    height: 30px;
+    color: #39FF14;  /* yellow instead of green hehe */
+    font-size: 54px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    pointer-events: none; /* So that the green exclamation mark doesn't interfere with events */
+    text-shadow: 
+    -1px -1px 0 black,  /* Outline to the top-left */
+    1px -1px 0 black,   /* Outline to the top-right */
+    -1px 1px 0 black,   /* Outline to the bottom-left */
+    1px 1px 0 black;    /* Outline to the bottom-right */  
+}
+  
+  
+  .figure-name {
+    font-size: 1em;
+    max-width: 100px;
+    white-space: normal;
+    text-align: center;
+    color: white;
+  }
+  
+  .figure-title {
+    font-size: 0.8em;
+    max-width: 100px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: yellow;
+    text-align: center;
+  }
+  .map-panel {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: 0%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh; /* Full viewport height */
+    background-color: #1a1a1a;
+    box-shadow: -2px 0 5px rgba(255, 255, 255, 0.1);
+  }
+  
+  .map-container,
+  .photo-box {
+    flex: 1; /* Each takes up half the height of the panel */
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    width: 100%; /* Full width of the panel */
+    overflow: hidden; /* Prevents overflowing of content */
+  }
+  
+  .map-container img,
+  .photo-box img {
+    max-width: 90%; /* Ensure the image fits within the panel width */
+    max-height: 100%; /* Ensure the image fits within its container */
+    object-fit: contain; /* Maintain aspect ratio without distortion */
+  }
+  
+  .photo-box {
+    padding-bottom: 10px; /* Add some space for the caption */
+  }
+  
+  #photo-caption {
+    color: white;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 5px; /* Space between the photo and the caption */
+    max-width: 90%; /* Limit caption width to match image width */
+    display: block; /* Ensure the caption is below the image */
+  }
+
+  .figure-regnal-year {
+    font-size: 0.7em;
+    color: grey;
+    text-align: center;
+  }
+  #family-tree-container {
+    flex: 1; /* Take up 50% of the height */
+    overflow-y: auto; /* Allow scrolling for larger trees */
+    padding: 10px;
+  }
+  
+  #family-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .tree-generation {
+    display: flex;
+    justify-content: center; /* Center elements in each generation */
+    gap: 40px; /* Space between nodes in the same generation */
+    margin-bottom: 20px; /* Space between generations */
+  }
+  
+  .tree-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8em;
+    text-align: center;
+  }
+  
+  .node img {
+    width: 45px; /* Standard width */
+    height: 40px; /* Standard height */
+    object-fit: cover; /* Ensures images fill the frame without distortion */
+    object-position: top; /* Aligns the image to the top */
+    border-radius: 50%; /* Makes the image round */
+    border: 3px solid gold; /* Gold border for the circular frame */
+    display: block;
+    margin: 0 auto;
+  }
+  
+  #constitution-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}/* Center titles inside boxes */
+/* Flex container for horizontal layout */
+/* Flex container for row-based layout */
+/* Ensure titles are visible */
+/* Row layout for side-by-side boxes */
+/* Row layout for side-by-side boxes */
+/* Row layout for horizontal arrangement */
+.row-container {
+  display: flex;
+  flex-direction: row; /* Arrange children horizontally */
+  flex-wrap: nowrap; /* Prevent wrapping unless explicitly required */
+ /* overflow: hidden; /* Enable horizontal scrolling if needed */
+  
+  justify-content: space-between; /* Distribute space evenly between groups */
+  align-items: flex-start; /* Align items at the top */
+  width: 100%; /* Ensure the row spans the full container width */
+}
+
+/* Column layout for vertical arrangement */
+.column-container {
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+  width: 100%; /* Stretch to fit the parent container */
+}
+
+/* General group container */
+.group-container {
+  border: 2px solid #fff;
+  padding-top: 40px;
+  /*align-items: center;*/
+      min-width: 200px;
+  background: rgba(0, 0, 0, 0.8);
+  position: relative;
+  display: flex;
+  width: fit-content;
+   overflow: hidden;
+  flex-direction: column; /* Default to vertical layout */
+}
+
+/* Ensure direct children of .group-container take their intended layout */
+.group-container > .row-container {
+  flex-direction: row; /* Explicit horizontal layout for row-container */
+}
+
+.group-container > .column-container {
+  flex-direction: column; /* Explicit vertical layout for column-container */
+}
+
+
+.group-title {
+    position: absolute; /* Remove it from the normal flow */
+    top: 0; /* Place it at the top of the parent */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: yellow;
+    background: black;
+    padding: 5px 10px;
+    /*border: 1px solid white;*/
+    border-radius: 5px;
+    z-index: 1;
+    height: 1.2em; /* Fix height to one row of text */
+    line-height: 1.2; /* Ensure proper alignment within the height */
+    text-align: center;
+	
+	 white-space: nowrap;
+  display: inline-block; /* Ensures the element stretches to fit the text */
+  width: max-content; /* Ensures the width adapts to the text content */
+}
+
+/* Grid layout for members */
+.member-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to a new row when necessary */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically within rows */
+  margin-top: 10px; /* Add spacing below the title */
+  flex-direction: column;
+  height: auto; /* Allow dynamic height based on content */
+  width: 100%;
+}
+
+/* Portrait row */
+.portrait-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+
+
+/* Figure container */
+.figure-container {
+  text-align: center;
+}
+
+.portrait-img{
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  /* border: 3px solid gold; Default border */
+}
+
+/* Roles and styling */
+.role-consul {
+  border: 3px solid gold;
+}
+
+.role-former-consul {
+  border: 3px solid purple;
+}
+
+.role-former-aedile {
+  border: 3px solid green;
+}
+
+.role-senator {
+  border: 3px solid blue;
+}
+.triumph-icon {
+  position: absolute;
+  top: 4%;
+  left: 0;
+  width: 100% !important;
+  pointer-events: none; /* Ensure it doesn't interfere with clicks */
+  border: 0px solid white !important;
+}
+
+.icons-container {
+  position: absolute;
+  top: 5%; /* Adjust as needed for vertical positioning */
+  right: 5%; /* Adjust as needed for horizontal positioning */
+  display: flex;
+  gap: 2px; /* Adjust spacing between icons */
+}
+
+/* Inline fasces icons */
+.inline-fasces-icon {
+  width: 1em; /* Match the font size */
+  height: 1em; /* Match the font size */
+  display: inline-block; /* Ensure it behaves like text */
+  vertical-align: middle; /* Align with text baseline */
+  margin-right: 0.2em; /* Spacing between icons */
+}
+
+.death-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 35%; /* Adjust size as needed */
+  height: auto; /* Adjust size as needed */
+  z-index: 10; /* Ensure it appears on top of the portrait */
+}
+.grass-crown-icon {
+  position: absolute;
+  top: -17%;
+  left: -20%;
+  width: 140% !important;
+  pointer-events: none; /* Ensure it doesn't interfere with clicks */
+  border: 0px solid white !important;
+}
+
