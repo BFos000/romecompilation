@@ -865,15 +865,7 @@ const stateStructures = [
 		  hideIfEmpty: true,
 		  members: [ "Interrex"],
 	  },
-        {
-      type: "group",
-      title: "Proconsuls",
-      layout: "row", // Portraits in a row
-      maxPortraitsPerRow: 5,
-      expectedCount: [[-509,0]],
-      hideIfEmpty: true,
-      members: [ "Proconsul"],
-    },,
+        
         {
       type: "group",
       title: "Honors",
@@ -903,7 +895,7 @@ const stateStructures = [
 		  type: "group",
 		  title: "Praetors",
 		  layout: "row", // Portraits in a row
-		  maxPortraitsPerRow: 4,
+		  maxPortraitsPerRow: 6,
 		  expectedCount: [[-509,20]],
 		  members: ["Praetor", "Suffect Praetor", "Praetor Pro Consule"],
 		  },  
@@ -942,6 +934,71 @@ const stateStructures = [
                   expectedCount: [[-577,1]], // Expect 1 pontifex
                   members: ["Pontifex Maximus"],
                 }, 
+		],
+		  },{
+		  type: "group",
+	  noborder: true,
+          layout: "row", // Place Senate and Priesthood side by side
+          children: [
+
+            {
+              type: "group",
+              title: "Promagistrates",
+              layout: "row",
+        scale: 0.66,
+              maxPortraitsPerRow: 9,
+    showTitles: true,
+              expectedCount: [[-509,0]], 
+              members: ["Promagister",
+"Promagistrate",
+"Proconsul",
+"Propraetor",
+"Propraetor Praefectus Classis",
+"Proquaestor",
+"Proquaestor Pro Propraetore",],
+            },
+			
+			
+			{
+              type: "group",
+              title: "Military Officials",
+              layout: "row",
+        scale: 0.66,
+              maxPortraitsPerRow: 9,
+    showTitles: true,
+              expectedCount: [[-509,0]], 
+              members: ["Praefectus Classis",
+"Praefectus Equitum",
+"Praefectus Evocatorum",
+"Praefectus Fabrum",
+"Praefectus Navium",
+"Praefectus Oppidi",
+"Praefectus Socii",
+"Praefectus Turmae",
+"Centurio",
+"Centurio Primus Pilus",
+"Decurio Equitum",
+"Legatus",
+"Legatus (Lieutenant)",
+"Legatus Fisci Castrensis",
+"Legatus Pro Praetore",
+"Legatus Pro Quaestore",
+"Navarchus Princeps",
+"Officer (Title Not Preserved)",
+"Tribunus Militum",],
+            },
+		  ]
+		  },
+		  
+		   {
+		  type: "group",
+	  noborder: true,
+          layout: "row", // Place Senate and Priesthood side by side
+          children: [
+		  
+		  
+		  
+		  
 		],
 		
 		  },
@@ -1038,44 +1095,12 @@ const stateStructures = [
 "Special Commissioners",
 "Triumvir Coloniis Deducendis",],
             },
-
-
-            {
-              type: "group",
-              title: "Military Officials",
-              layout: "row",
-        scale: 0.66,
-              maxPortraitsPerRow: 6,
-    showTitles: true,
-              expectedCount: [[-509,0]], 
-              members: ["Praefectus Classis",
-"Praefectus Equitum",
-"Praefectus Evocatorum",
-"Praefectus Fabrum",
-"Praefectus Navium",
-"Praefectus Oppidi",
-"Praefectus Socii",
-"Praefectus Turmae",
-"Centurio",
-"Centurio Primus Pilus",
-"Decurio Equitum",
-"Legatus",
-"Legatus (Lieutenant)",
-"Legatus Fisci Castrensis",
-"Legatus Pro Praetore",
-"Legatus Pro Quaestore",
-"Navarchus Princeps",
-"Officer (Title Not Preserved)",
-"Tribunus Militum",],
-            },
-
-
             {
               type: "group",
               title: "Priesthood",
               layout: "row",
         scale: 0.66,
-              maxPortraitsPerRow: 4,
+              maxPortraitsPerRow: 8,
     showTitles: true,
               expectedCount: [[-509,0]], 
               members: ["Aedituus Fortuna-Obsequens-Tempel",
@@ -1123,47 +1148,6 @@ const stateStructures = [
 "Virgo Vestalis",],
             },
 
-
-            {
-              type: "group",
-              title: "Promagistrates",
-              layout: "row",
-        scale: 0.66,
-              maxPortraitsPerRow: 4,
-    showTitles: true,
-              expectedCount: [[-509,0]], 
-              members: ["Promagister",
-"Promagistrate",
-"Proconsul",
-"Propraetor",
-"Propraetor Praefectus Classis",
-"Proquaestor",
-"Proquaestor Pro Propraetore",],
-            },
-            
-          ],
-        },{
-          type: "group",  // second layer of extras
-    noborder: true,
-          layout: "row", // Place Senate and Priesthood side by side
-          children: [
-            
-         {
-              type: "group",
-              title: "Judicial Offices",
-              layout: "row",
-        scale: 0.66,
-              maxPortraitsPerRow: 4,
-    showTitles: true,
-              expectedCount: [[-509,0]], 
-              members: ["Quattuorvir Capitalis",
-"Accusator",
-"Decemvir Stlitibus Iudicandis",
-"Duovir Perduellionis",
-"Iudex",
-"Iudex Quaestionis",
-"Quaesitor",],
-            },
          {
               type: "group",
               title: "Diplomats",
@@ -1176,6 +1160,33 @@ const stateStructures = [
 "Legatus (Ambassador)",
 "Legatus (Envoy)",],
             },
+			
+			{
+              type: "group",
+              title: "Judicial Officials",
+              layout: "row",
+        scale: 0.66,
+              maxPortraitsPerRow: 2,
+    showTitles: true,
+              expectedCount: [[-509,0]], 
+              members: ["Quattuorvir Capitalis",
+"Accusator",
+"Decemvir Stlitibus Iudicandis",
+"Duovir Perduellionis",
+"Iudex",
+"Iudex Quaestionis",
+"Quaesitor",],
+            },
+
+            
+          ],
+        },{
+          type: "group",  // second layer of extras
+    noborder: true,
+          layout: "row", // Place Senate and Priesthood side by side
+          children: [
+            
+         
          {
               type: "group",
               title: "Election Results",
@@ -15016,6 +15027,9 @@ function renderGroup(groupData, currentYear, usedOffices = new Set()) {
     titleElem.classList.add("group-title");
     titleElem.textContent = groupData.title;
     groupContainer.appendChild(titleElem);
+  }
+  else{
+	  groupContainer.style.paddingTop = "0px"; // Office title in yellow
   }
 
   // Render children groups or members
